@@ -29,6 +29,8 @@ Data preparation pipeline
 
 * 15min is a lot of interview time.
 * Lots of complex questions / answering options
+* 12 years of background info...
+* A big **thank you** to everybody who helped cleaning this up, especially Moritz Mendel and Christian Zimpelmann, who took the lead!
 
 Univariate distributions of answers, also by background characteristics
 ========================================================================
@@ -43,8 +45,9 @@ Gist on social distancing policies
 
 * High rated effectiveness
 * Deemed appropriate, if anything not strict enough
+* Interesting pattern of belief in others following a hypothetical curfew and own intended behaviour (Ingo)
 * No striking heterogeneities
-* Sometimes the absence of heterogeneity can be interesting! (next slids courtesy of Maria)
+* Sometimes the absence of heterogeneity can be interesting! (next slides are courtesy of Maria)
 
 No trade-offs in support for social distancing policies and individual economic consequences
 ==================================================================================================
@@ -71,7 +74,56 @@ But calls for more government intervention in terms of cushioning the economic c
 But calls for more government intervention in terms of cushioning the economic consequences
 ==================================================================================================
 
-
 .. image:: fig-econ-exp/gov_econ_fd.png
     :width: 60%
+    :align: center
+
+
+Hours of work
+=============
+
+* Thanks to Radost Holler, Lena Janys, Bettina Siflinger, and Christian Zimpelmann!
+* Results based on a question where respondents were asked to fill in a 2⨉2 matrix on working hours, before the coronavirus crisis / in the week preceding the interview.
+
+Hours of work
+=============
+
+.. image:: work-childcare/working-hours-overall.png
+    :width: 60%
+    :align: center
+
+Hours of work by education
+==========================
+
+.. image:: work-childcare/final-working-hours-by-edu2.png
+    :width: 60%
+    :align: center
+
+Hours of work by education and income group
+===========================================
+
+.. image:: work-childcare/home-office-within-income-by-edu3.png
+    :width: 90%
+    :align: center
+
+
+Mental health
+=============
+
+* Thanks to Bettina Siflinger, Michaela Paffenholz, Sebastian Seitz, and Moritz Mendel!
+* Please do not take the following prevalence rates literally, we still need to work on incorporating different timeframes ("past month" for baseline, "past seven days" for the March 2020 data)
+
+
+Mental health (fathers)
+=======================
+
+.. image:: mental-health/development_of_mental_health_by_relative_home_office_increase_for_fathers_conservative.png
+    :width: 30%
+    :align: center
+
+Mental health (mothers)
+=============================================
+
+.. image:: mental-health/development_of_mental_health_by_relative_home_office_increase_for_mothers_conservative.png
+    :width: 30%
     :align: center

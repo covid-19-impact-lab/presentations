@@ -551,129 +551,27 @@ def build(ctx):
         )
         ctx(rule="cp ${SRC} ${TGT}", source=src, target=tgt)
 
-    for src_node in ctx.path.ant_glob("fig-econ-exp/**"):
-        src = src_node.path_from(ctx.path)
-        tgt = ctx.path_to(
-            ctx,
-            "BLD_SLIDES",
-            src,
-            # src.split(os.sep)[1],
-            # os.path.join(*src.split(os.sep)[1:]),
-        )
-        ctx(rule="cp ${SRC} ${TGT}", source=src, target=tgt)
-
-    # ctx(
-    #     rule=preprocess,
-    #     source=["{}.rst".format(in_trunk)] + deps,
-    #     target="preprocessed/{}.rst".format(out_trunk),
-    # )
+    folders = ("fig-econ-exp", "work-childcare", "mental-health")
+    for folder in folders:
+        for src_node in ctx.path.ant_glob(f"{folder}/**"):
+            src = src_node.path_from(ctx.path)
+            tgt = ctx.path_to(
+                ctx,
+                "BLD_SLIDES",
+                src,
+                # src.split(os.sep)[1],
+                # os.path.join(*src.split(os.sep)[1:]),
+            )
+            ctx(rule="cp ${SRC} ${TGT}", source=src, target=tgt)
 
     out_trunk = "first-results"
     ctx(
         rule=create_revealjs_html,
-        source="{}.rst".format(out_trunk),
-        target=ctx.path_to(ctx, "BLD_SLIDES", "{}.html".format(out_trunk)),
+        source=f"{out_trunk}.rst",
+        target=ctx.path_to(ctx, "BLD_SLIDES", f"{out_trunk}.html"),
     )
-
-    # lectures_with_deps = get_lectures_copy_deps(ctx)
-    #
-    # i = 0
-    # for in_trunk, deps in lectures_with_deps.items():
-    #     out_trunk = "{:02d}_{}".format(i, in_trunk)
-    #
-    #
-    #     if i > 0:
-    #
-    #     ctx(
-    #         rule=create_revealjs_html,
-    #         source="slides/{}.rst".format(out_trunk),
-    #         target=ctx.path_to(ctx, "BLD_LECTURES", "{}.html".format(out_trunk)),
-    #     )
-    #
-    #     if i > 0:
-    #         handout_pdf = ctx.path_to(ctx, "BLD_HANDOUTS", "{}.pdf".format(out_trunk))
-    #         ctx(
-    #             rule=create_handout_pdf,
-    #             source="handouts/{}.rst".format(out_trunk),
-    #             target=handout_pdf,
-    #         )
-    #     else:
-    #         handout_pdf = None
-    #
-    #     if ctx.env.LAST_LECTURE_TO_INSTALL >= i and handout_pdf:
-    #         if "INSTALL_WEB" in ctx.env["PROJECT_PATHS"]:
-    #             ctx.install_files(
-    #                 ctx.env["PROJECT_PATHS"]["INSTALL_WEB"].abspath(), handout_pdf
-    #             )
-    #         ctx.install_files(
-    #             os.path.join(
-    #                    # lectures_with_deps = get_lectures_copy_deps(ctx)
-    #
-    # i = 0
-    # for in_trunk, deps in lectures_with_deps.items():
-    #     out_trunk = "{:02d}_{}".format(i, in_trunk)
-    #
-    #
-    #     if i > 0:
-    #
-    #     ctx(
-    #         rule=create_revealjs_html,
-    #         source="slides/{}.rst".format(out_trunk),
-    #         target=ctx.path_to(ctx, "BLD_LECTURES", "{}.html".format(out_trunk)),
-    #     )
-    #
-    #     if i > 0:
-    #         handout_pdf = ctx.path_to(ctx, "BLD_HANDOUTS", "{}.pdf".format(out_trunk))
-    #         ctx(
-    #             rule=create_handout_pdf,
-    #             source="handouts/{}.rst".format(out_trunk),
-    #             target=handout_pdf,
-    #         )
-    #     else:
-    #         handout_pdf = None
-    #
-    #     if ctx.env.LAST_LECTURE_TO_INSTALL >= i and handout_pdf:
-    #         if "INSTALL_WEB" in ctx.env["PROJECT_PATHS"]:
-    #             ctx.install_files(
-    #                 ctx.env["PROJECT_PATHS"]["INSTALL_WEB"].abspath(), handout_pdf
-    #             )
-    #         ctx.install_files(
-    #             os.path.join(
-    #                 ctx.env["PROJECT_PATHS"]["INSTALL_STUDENTS"].abspath(), "lectures"
-    #             ),
-    #             handout_pdf,
-    #         )
-    #
-    #     for src_node in ctx.env["PROJECT_PATHS"]["BLD_LECTURES"].ant_glob(
-    #         "**/*", excl=["*.md|LICENSE"]
-    #     ):
-    #
-    #         ctx.install_files(
-    #             os.path.join(
-    #                 ctx.env["PROJECT_PATHS"]["INSTALL_TEACHING"].abspath(), "lectures"
-    #             ),
-    #             src_node,
-    #             cwd=ctx.env["PROJECT_PATHS"]["BLD_LECTURES"],
-    #             relative_trick=True,
-    #         )
-    #
-    #     i += 1
-    # ctx.env["PROJECT_PATHS"]["INSTALL_STUDENTS"].abspath(), "lectures"
-    #             ),
-    #             handout_pdf,
-    #         )
-    #
-    #     for src_node in ctx.env["PROJECT_PATHS"]["BLD_LECTURES"].ant_glob(
-    #         "**/*", excl=["*.md|LICENSE"]
-    #     ):
-    #
-    #         ctx.install_files(
-    #             os.path.join(
-    #                 ctx.env["PROJECT_PATHS"]["INSTALL_TEACHING"].abspath(), "lectures"
-    #             ),
-    #             src_node,
-    #             cwd=ctx.env["PROJECT_PATHS"]["BLD_LECTURES"],
-    #             relative_trick=True,
-    #         )
-    #
-    #     i += 1
+    ctx(
+        rule=create_handout_pdf,
+        source=f"{out_trunk}.rst",
+        target=ctx.path_to(ctx, "BLD_HANDOUTS", f"{out_trunk}.pdf"),
+    )
