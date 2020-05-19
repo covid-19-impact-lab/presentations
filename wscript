@@ -575,3 +575,14 @@ def build(ctx):
         source=f"{out_trunk}.rst",
         target=ctx.path_to(ctx, "BLD_HANDOUTS", f"{out_trunk}.pdf"),
     )
+    out_trunk = "ose-meetup"
+    ctx(
+        rule=create_revealjs_html,
+        source=f"{out_trunk}.rst",
+        target=ctx.path_to(ctx, "BLD_SLIDES", f"{out_trunk}.html"),
+    )
+    ctx(
+        rule=create_handout_pdf,
+        source=f"{out_trunk}.rst",
+        target=ctx.path_to(ctx, "BLD_HANDOUTS", f"{out_trunk}.pdf"),
+    )
