@@ -1,77 +1,82 @@
-:Title: Early Survey Evidence
-:Authors: Hans-Martin v. Gaudecker & the `CoViD-19 Impact Lab <https://covid-19-impact-lab.readthedocs.io/en/latest/about_us.html>`__ team
+:Title: Erste Ergebnisse
+:Authors: Hans-Martin v. Gaudecker & `CoViD-19 Impact Lab <https://covid-19-impact-lab.readthedocs.io/en/latest/about_us.html>`__ Team
 :Organization: Universität Bonn & IZA
-:Course: The Impact of CoViD-19 on Society
+:Course: Soziale und ökonomische Auswirkungen der Coronaviruskrise:
 :Copyright: Creative Commons
 
 
-Background
-==========
 
-* LISS panel a long-running Dutch Internet Panel (since 2007)
-* Probability-based sample, ~7000 respondents
-* Data can be linked to administrative records at an individual-level
-* Christian and me have collected lots of data on ambiguity there for the past two years (and I did some stuff previously)
+Die Anfänge
+===========
 
-
-CoViD-19 surveys
-================
-
-* **March 20-31:** Risk perceptions, behavioural reactions and preferences re social distancing policies, changes in the work and childcare situation, intentions and expectations regarding consumption/savings decisions, mental health **(financed by ECONtribute)**.
-* Some questions fielded in parallel in GESIS Panel (online only)
-* **April 6-28:** Risk perceptions, number of personal contacts, changes in the work situation, income and macro expectations **(financed by ECONtribute)**
-* **April 21-28:** Time Use and Consumption survey, similar to November 2019 edition, adapted to current situation **(financed by CRC/TR 224)**
-* **May and beyond:** Many ideas, no funding confirmed at this point.
+* Mitte März: Lockdowns in Europa
+* Impuls: wirtschafts- und sozialwissenschaftlich begleiten
+* Langjährige Datensammlung im SFB / TR 224 im LISS Panel (NL)
+* Eine Woche später im Feld mit 15-min Umfrage
 
 
-Data preparation pipeline
-=========================
+LISS Panel: Hintergrund
+=======================
 
-* 15min is a lot of interview time.
-* Lots of complex questions / answering options
-* 12 years of background info...
-* A big **thank you** to everybody who helped cleaning this up, especially Moritz Mendel and Christian Zimpelmann, who took the lead!
-
-Univariate distributions of answers, also by background characteristics
-========================================================================
-
-* See for yourselves: https://covid-19-impact-lab.iza.org/
-* Thanks to Klara Röhrl and Janos Gabler!
-* More to come (maps, bivariate distributions)
+* Panel: Dieselben Personen / Haushalte werden immer wieder befragt
+* Online, läuft seit 2007
+* Wahrscheinlichkeitsbasierte Stichprobe, ~7000 Personen
+* Reichhaltige Hintergrunddaten
+* Umfragedaten können mit Verwaltungsdaten zusammengeführt werden
 
 
-Gist on social distancing policies
-==================================
+Ausmaß Datensammlung
+====================
 
-* High rated effectiveness
-* Deemed appropriate, if anything not strict enough
-* Interesting pattern of belief in others following a hypothetical curfew and own intended behaviour (Ingo)
-* No striking heterogeneities
-* Sometimes the absence of heterogeneity can be interesting! (next slides are courtesy of Maria)
+* **20-31 März:** Ansteckungsrisikoperzeptionen, Verhaltensänderungen hinsichtlich Ansteckungsgefahr, Einstellungen zu den sozialen Distanzierungsmaßnahmen, Änderungen in der Arbeitsmarkt- und Kinderbetreuungssituation, Absichten und Erwartungen hinsichtlich Konsum/Sparentscheidungen, mentale Gesundheit **(Finanzierung: ECONtribute)**.
+* **6-28 April:** Ansteckungsrisikoperzeptionen, Zahl persönlicher Kontakte, Änderungen in der Arbeitsmarktsituation, Einkommens- und gesamtwirtschaftliche Erwartungen  **(Finanzierung: ECONtribute)**
+* **21-28 April:** Zeitnutzung un Konsum, ähnlich zu November 2019, besonderer Fokus auf Kinderbetreuung und homeschooling **(Finanzierung: CRC/TR 224)**
+* **4-26 Mai:** Ansteckungsrisikoperzeptionen, Arbeitsmarktsituation, Nutzung wirtschaftlicher Unterstützungsprogramme, homeschooling **(Finanzierung: NWO/IZA)**
+* **1-30 Juni:** Ansteckungsrisikoperzeptionen, Zahl persönlicher Kontakte, Umgang mit Lockerungsmaßnahmen, Arbeitsmarktsituation, Jobsuche **(Finanzierung: NWO/IZA)**
 
-No trade-offs in support for social distancing policies and individual economic consequences
-==================================================================================================
+
+
+Situation in den NL
+====================
+
+* März: Liebäugeln mit Herdenimmunität
+* Letztlich ähnliche Maßnahmen wie in D
+* Öffnungen seit Anfang Mai
+
+  * KiTas und Grundschulen: Schneller (11. Mai / 8. Juni)
+  * Gastronomie: Langsamer (8. Juni)
+* Deutlich höhere Sterblichkeit, aber kein völlig überlaufenen Intensivstationen
+
+
+Univariate Statistiken
+======================
+
+* Sehen Sie selbst: https://covid-19-impact-lab.iza.org/de/app
+
+
+Kein trade-off zwischen Unterstützung für soziale Distanzierungsmaßnahmen und individuellen ökonomischer Konsequenzen
+===============================================================================================================================
 
 .. image:: fig-econ-exp/gov_pub_jobloss_ng.png
     :width: 60%
     :align: center
 
-No trade-offs in support for social distancing policies and individual economic consequences
-==================================================================================================
+Kein trade-off zwischen Unterstützung für soziale Distanzierungsmaßnahmen und individuellen ökonomischer Konsequenzen
+===============================================================================================================================
 
 
 .. image:: fig-econ-exp/gov_pub_fd.png
     :width: 60%
     :align: center
 
-But calls for more government intervention in terms of cushioning the economic consequences
+Aber Wunsch nach zusätzlicher Unterstützung, um die ökonomischen Konsequenzen abzufedern
 ==================================================================================================
 
 .. image:: fig-econ-exp/gov_econ_jobloss_ng.png
     :width: 60%
     :align: center
 
-But calls for more government intervention in terms of cushioning the economic consequences
+Aber Wunsch nach zusätzlicher Unterstützung, um die ökonomischen Konsequenzen abzufedern
 ==================================================================================================
 
 .. image:: fig-econ-exp/gov_econ_fd.png
@@ -79,51 +84,124 @@ But calls for more government intervention in terms of cushioning the economic c
     :align: center
 
 
-Hours of work
-=============
+Arbeitsstunden
+==============
 
-* Thanks to Radost Holler, Lena Janys, Bettina Siflinger, and Christian Zimpelmann!
-* Results based on a question where respondents were asked to fill in a 2⨉2 matrix on working hours, before the coronavirus crisis / in the week preceding the interview.
+* Siehe Hans-Martin von Gaudecker, Radost Holler, Lena Janys, Bettina M. Siflinger, Christian Zimpelmann: Labour Supply in the Early Stages of the COVID-19 Pandemic: Empirical Evidence on Hours, Home Office, and Expectations,  IZA DP No. 13158
+* Oder Pressemitteilung: https://selten.institute/2020/04/17/econtribute-studie-coronavirus-geringverdiener-sind-doppelte-verlierer-der-coronakrise/
 
-Hours of work
-=============
 
-.. image:: work-childcare/working-hours-overall.png
+
+
+
+Änderung im Zustand nach Art der Beschäftigung
+===============================================
+
+.. image:: work-childcare/extensive-margin-employment-status.png
     :width: 60%
     :align: center
 
-Hours of work by education
-==========================
+Arbeitsstunden nach Art der Beschäftigung
+=========================================
 
-.. image:: work-childcare/final-working-hours-by-edu2.png
+.. image:: work-childcare/home-office-employment-status.png
     :width: 60%
     :align: center
 
-Hours of work by education and income group
-===========================================
-
-.. image:: work-childcare/home-office-within-income-by-edu3.png
-    :width: 90%
-    :align: center
-
-
-Mental health
-=============
-
-* Thanks to Bettina Siflinger, Michaela Paffenholz, Sebastian Seitz, and Moritz Mendel!
-* Please do not take the following prevalence rates literally, we still need to work on incorporating different timeframes ("past month" for baseline, "past seven days" for the March 2020 data)
-
-
-Mental health (fathers)
-=======================
-
-.. image:: mental-health/development_of_mental_health_by_relative_home_office_increase_for_fathers_conservative.png
-    :width: 30%
-    :align: center
-
-Mental health (mothers)
+Arbeitsstunden nach Systemrelevanz der Arbeit
 =============================================
 
-.. image:: mental-health/development_of_mental_health_by_relative_home_office_increase_for_mothers_conservative.png
-    :width: 30%
+.. image:: work-childcare/home-office-essential.png
+    :width: 60%
     :align: center
+
+Arbeitsstunden nach Bildungsgrad
+====================================
+
+.. image:: work-childcare/home-office-edu.png
+    :width: 60%
+    :align: center
+
+Änderung in Arbeitsstunden nach Bildungsgrad im Sektor
+======================================================
+
+.. image:: work-childcare/sector_by_edu_and_change_work_h.png
+    :width: 60%
+    :align: center
+
+
+Änderung in Home Office nach Bildungsgrad im Sektor
+======================================================
+
+.. image:: work-childcare/sector_by_edu_and_home_share_after.png
+    :width: 60%
+    :align: center
+
+
+Änderung Arbeitsstunden nach Geschlecht
+=======================================
+
+.. image:: work-childcare/home-office-gender.png
+    :width: 60%
+    :align: center
+
+
+
+Änderung Arbeitsstunden nach Geschlecht (abs)
+=============================================
+
+.. image:: work-childcare/q-change-hours-absolute.png
+    :width: 60%
+    :align: center
+
+Änderung Arbeitsstunden nach Geschlecht (rel)
+=============================================
+
+.. image:: work-childcare/q-change-hours-absolute.png
+    :width: 60%
+    :align: center
+
+
+Mentale Gesundheit
+==================
+
+* Kurzform eines Screening-Tests (MHI-5)
+* Dimensionen:
+
+  * sehr nervös -
+  * entmutigt und traurig -
+  * nichts aufheitern -
+  * glücklich +
+  * ruhig und gelassen +
+
+* Skalen 0-5 (höhere Werte besser) ⨉ 4: 0 (schlecht) - 100 (gut)
+
+
+Mentale Gesundheit
+==================
+
+.. image:: mental-health/cdf.png
+    :width: 50%
+    :align: center
+
+
+Welche Gruppen am stärksten betroffen?
+======================================
+
+* Gruppen, die vorher hohes Risiko für mentale Gesundheitsprobleme hatten, sehen wenig Änderungen
+* Väter haben die größten Änderungen
+
+  * extrem wenig Indikationen für mentale Gesundheitsprobleme vorher
+  * plötzlich Risikogruppe.
+* Jobsorgen oder Doppelbelastung?
+* Achtung: Erste Wochen des lockdowns!
+
+
+Zusammenfassung und Ausblick
+============================
+
+* Nordwesteuropa: Hohe Zustimmung zu lockdowns, über Bevölkerungsgruppen hinweg
+* Großer Effekt auf Arbeitsmarkt, durch Kurzarbeit (noch) abgefedert
+* Aber klar, dass er weniger gebildete härter trifft
+* Frauen sind am Arbeitsmarkt stärker betroffen, Einfluss auf Rollenverteilung sehr heterogen
+* Mentale Gesundheitsrisiken steigen

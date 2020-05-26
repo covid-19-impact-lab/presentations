@@ -6,9 +6,9 @@ args:
   - build
   - install
 sh: true,
-cwd: /home/hmg/econ/covid-19-impact-lab/presentation
+cwd: /home/hmg/econ/covid-19-impact-lab/presentations
 env:
-  PATH: "/home/hmg/miniconda3/envs/covid-main/bin:/home/hmg/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/stata14:.:/usr/local/julia/bin"
+  PATH: "/home/hmg/miniconda3/envs/covid-main/bin:/home/hmg/miniconda3/condabin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/home/hmg/econ/texlive/2019/bin/x86_64-linux:/usr/local/stata14:.:/usr/local/julia/bin"
   WAFLOCK: ".lock-wafbld"
 errorMatch:
   - ^regexp1$
