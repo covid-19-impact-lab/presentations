@@ -147,17 +147,17 @@ Arbeitsstunden nach Bildungsgrad
 
 
 
-Änderung Arbeitsstunden nach Geschlecht (abs)
-=============================================
+Änderung Arbeitsstunden nach Geschlecht (absolut)
+=================================================
 
 .. image:: work-childcare/q-change-hours-absolute.png
     :width: 60%
     :align: center
 
-Änderung Arbeitsstunden nach Geschlecht (rel)
-=============================================
+Änderung Arbeitsstunden nach Geschlecht (relativ)
+=================================================
 
-.. image:: work-childcare/q-change-hours-absolute.png
+.. image:: work-childcare/q-change-hours-relative.png
     :width: 60%
     :align: center
 
@@ -193,6 +193,7 @@ Welche Gruppen am stärksten betroffen?
 
   * extrem wenig Indikationen für mentale Gesundheitsprobleme vorher
   * plötzlich Risikogruppe.
+
 * Jobsorgen oder Doppelbelastung?
 * Achtung: Erste Wochen des lockdowns!
 

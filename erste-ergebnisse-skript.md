@@ -1,8 +1,22 @@
 # Team
 
 * Ungewöhnlich: Nicht etwa hierarchisches Labor
-* Hochmotiverte Doktoranden
+* Hochmotiverte Doktoranden und Masterstudenten
 
+  * Radost Holler
+  * Christian Zimpelmann
+  * Moritz Mendel
+  * Janos Gabler
+  * Klara Röhrl
+  * Tobias Raabe
+  * Annica Gehlen
+  * Michaela Pfaffenholz und Sebastian Seitz (MA)
+
+* Sowie ebenso motivierte Kolleginnen und Kollegen
+
+  * Lena Janys
+  * Bettina Siflinger (Tilburg)
+  * Jürgen Maurer (Lausanne)
 
 
 # Soziale Distanzierungsmaßnahmen (click): Karten
