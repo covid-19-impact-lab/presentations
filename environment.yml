@@ -1,0 +1,10 @@
+name: pres
+channels:
+  - conda-forge
+  - pytask
+dependencies:
+  - python=3.8
+  - pip
+  - pre-commit
+  - pypandoc
+  - pytask
