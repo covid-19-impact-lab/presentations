@@ -23,3 +23,14 @@ def task_slides(depends_on, produces):
             # '--bibliography="src/library/bib/hmg.bib"'
         ],
     )
+
+
+@pytask.mark.depends_on("crc-covid-data.rst")
+@pytask.mark.produces("crc-covid-data.pdf")
+def task_pdf(depends_on, produces):
+    pypandoc.convert(
+        str(depends_on),
+        "pdf",
+        outputfile=str(produces),
+        extra_args=["--pdf-engine=xelatex"],
+    )

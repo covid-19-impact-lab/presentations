@@ -1,105 +1,135 @@
-:Title: (Programming) Lessons Learned
-:Authors: Hans-Martin v. Gaudecker & the `CoViD-19 Impact Lab <https://covid-19-impact-lab.readthedocs.io/en/latest/people.html>`__ team
+:Title: An introduction to the LISS (CoViD-19) data
+:Authors: Hans-Martin v. Gaudecker
 :Organization: Universität Bonn & IZA
-:Course: CoViD-19 Impact Lab
 :Copyright: Creative Commons
 
 
 
-CoViD-19 Impact Lab
-====================
-
-* Youngest child of OSE — founded 15 March or so
-* 4 arms
-
-  * LISS data analysis (NL)
-  * GESIS data analysis (DE)
-  * Twitter sentiment analysis
-  * Infection model
-
-* Major support from ECONtribute, CRC TR/224, IZA, NWO
-
-
-Quickly grown out of infancy
-============================
-
-* 4 + 1 waves of data collection
-* Informative `website <https://covid-19-impact-lab.io>`_
-* A `beautiful dashboard <https://covid-19-impact-lab.iza.org/>`_
-* 1 Working paper + 2 imminent
-* Reports published by CPB, DNB
-* Results discussed in German and Dutch cabinets
-
 Background
-=============
+==========
 
-* LISS panel a long-running Dutch Internet Panel (since 2007)
-* Probability-based sample, ~7000 respondents
-* Data can be linked to administrative records at an individual-level
-* Christian, Axel and me have collected lots of data on ambiguity there for the past two years (and I did some stuff previously)
+* LISS: Online Panel in the Netherlands, running since 2007
+* Based on probability sample
+* Roughly 5,000 households / 7,500 individuals
+* Each month, respondents get 30 minutes of questionnaires
+
+  * Background data on Work, Health, Income, ...
+  * Questionnaires designed by researchers (~85c / minute / respondent)
+
+* Around 85% of respondents can be linked to administrative microdata
+
+
+CRC data collection
+===================
+
+* C01: Panel of ambiguity attitudes / stock market beliefs (see my presentation this afternoon if interested)
+* A01, A02, C01: Risk / time social preferences, parental expectations for children's careers, ...
+* A03: Within-household financial decisions
 
 
 CoViD-19 surveys
 ================
 
 * See https://liss-covid-19-questionnaires-documentation.readthedocs.io/
-* **March 20-31:** Risk perceptions, behavioural reactions and preferences re social distancing policies, changes in the work and childcare situation, intentions and expectations regarding consumption/savings decisions, mental health **(financed by ECONtribute)**.
-* **April 6-28:** Risk perceptions, number of personal contacts, changes in the work situation, income and macro expectations **(financed by ECONtribute)**
-* **April 21-28:** Time Use and Consumption survey, similar to November 2019 edition, adapted to current situation **(financed by CRC/TR 224)**
+* **March 20-31:** Risk perceptions, behavioural reactions and preferences re social distancing policies, changes in the work and childcare situation, intentions and expectations regarding consumption/savings decisions, mental health
+* **April 6-28:** Risk perceptions, number of personal contacts, changes in the work situation, income and macro expectations
 * **May** Mostly labour, some health, home schooling
 * **June** Mostly labour, lots of job search, how do parents deal with opening of daycares / primary schools?
+* **September**: Risk perceptions, support for policies, changes in the work situation, income and macro expectations
+* **Hopefully three more waves!**
 
 
-Data management: Background
+(CoViD-19) Time use & consumption
+=================================
+
+* **November 2019**: Baseline, helped redesign survey
+* **April 21-28:** Similar to November 2019 edition, adapted to lockdown situation
+* **November**: Similar to November 2019, adapted to current situation
+* **Hopefully another round November 2021**
+
+
+Some results
+=============
+
+* Hours worked by essential worker status and capability to work from home
+* Gender division of tasks
+
+
+
+Hours worked
+============
+
+|pic1|  |pic2|
+
+.. |pic1| image:: work-childcare/abs-change-hours-over-time-by-work_perc_home_cat_only_noness_ger-full-unconditional.png
+   :width: 35%
+
+.. |pic2| image:: work-childcare/abs-change-hours-over-time-by-work_perc_home_cat_only_ess_ger-full-unconditional.png
+   :width: 35%
+
+
+
+Hours worked from home
 ===========================
 
-* Data management: First idea — get out some dataset to be used quickly
-* Traded off speed for consistency
-* Lesson learned: There is no trade-off
+|pic3|  |pic4|
+
+.. |pic3| image:: work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat_only_noness_ger-full-unconditional.png
+   :width: 35%
+
+.. |pic4| image:: work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat_only_ess_ger-full-unconditional.png
+   :width: 35%
 
 
-Variable names
-===========================================
+Hours worked by sector
+===========================
 
-* https://estimagic.readthedocs.io/en/latest/contributing/styleguide.html
-* What is the probability that the Coronavirus crisis will lead to a situation where you have no income or where your income is lower than what you need to cover basic needs and outstanding payment obligations?
-* = Financial distress if you have a million on your bank account?
+|pic5|  |pic6|
 
+.. |pic5| image:: work-childcare/sector_change_ind_by_work_perc_march.png
+   :width: 35%
 
-Stick to Normal forms
-===========================================
-
-* Values do not have any internal structure
-* Tables do not contain redundant information
-* No structure in variable names
-
-Started with wide format -- painful (lots of string parsing for variable names, little flexibility)
+.. |pic6| image:: work-childcare/sector_change_ind_by_work_perc_june.png
+   :width: 35%
 
 
-Technical hurdles
-===========================================
-
-* Started out with group of people who knew their tools (in particular Python, Git)
-* Many of those who are eager to analyse data are on Stata or R and have no idea of either Python or Git
-* Lots of double work and confusion (how to discretise probability statements?)
-* Classic open source issue -- get a solution for your problem, do not take externalities into account
-* Need to solve challenges
 
 
-Interoperability Pandas -- R / Stata
-===========================================
+Gender division of tasks
+========================
 
-* Stay away from the bleeding edge of Pandas, especially the internal data types including missings -- killed feather
-* Went with pickle for Pandas DataFrames, csv for R & Stata
-* Lots of information lost in transition
-* Silver bullet not found yet, trying Parquet / dta now
+* On average, women reduce one hour extra during lockdown, effect vanishes by June
+* No addtional effect of children being present in the household on either parent!
+* If both parents work full-time before pandemic: roughly equal shares of additional childcare
+
+  * Typically 37 + 32 hours than 45 + 45
+
+* Combinations FT / PT or FT / no work: Gender care gap increases
+* Currently working on explaining this in model with specialization / subsidized childcare for relatively short hours
+
+Other current projects
+======================
+
+* Mental health (with Michaela Paffenholz, Sebastian Seitz, Bettina Siflinger, Moritz Mendel)
+* Evolution of income / macro expectations (with Moritz Mendel, Simon Heiler)
 
 
-Overall conclusions
-===================
+.. raw:: latex
 
-* Much slower than what we had envisioned, largely my "fault"
-* Frictions between "applied" people and nerds tough if under time pressure
-* Information flow in unstructured / not very structured organisation
-* Still, pretty much did what large research institutes do for 7 or 8-digit budgets with 10 core + 15 non-core people
-* Very proud of what we have achieved so far
+    \clearpage
+
+
+More users wanted!
+==================
+
+* Data come largely cleaned up
+* Huge potential of data for "serious" research
+  
+  - Baseline
+  - Many data collected when it mattered (will matter)
+  - Follow-up, including in administrative data
+
+* Far more than current team could potentially do
+* Broad base of CRC users helpful for additional funding
+* Doodle for brainstorming meeting https://doodle.com/poll/xr7452ay2qryz2gx
+* e-Mail me / let's chat! 

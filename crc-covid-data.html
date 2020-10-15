@@ -4,10 +4,10 @@
 <head>
 <meta charset="utf-8">
 
-<title>(Programming) Lessons Learned</title>
+<title>An introduction to the LISS (CoViD-19) data</title>
 
-<meta name="description" content="(Programming) Lessons Learned">
-  <meta name="author" content="Hans-Martin v. Gaudecker &amp; the <a href="https://covid-19-impact-lab.readthedocs.io/en/latest/people.html">CoViD-19 Impact Lab</a> team">
+<meta name="description" content="An introduction to the LISS (CoViD-19) data">
+  <meta name="author" content="Hans-Martin v. Gaudecker">
 
 <meta name="apple-mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -45,112 +45,111 @@
 <div class="slides">
 
 <section>
-    <h1><p>CoViD-19 Impact Lab</p></h1>
-    <h1>(Programming) Lessons Learned</h1>
-    <h3>Hans-Martin v. Gaudecker &amp; the <a href="https://covid-19-impact-lab.readthedocs.io/en/latest/people.html">CoViD-19 Impact Lab</a> team</h3>
+    <h1></h1>
+    <h1>An introduction to the LISS (CoViD-19) data</h1>
+    <h3>Hans-Martin v. Gaudecker</h3>
     <p>
     <h4><p>Universität Bonn &amp; IZA</p></h4><h4></h4>
     </p>
 </section>
 
 
-<section id="covid-19-impact-lab" class="level1">
-<h1>CoViD-19 Impact Lab</h1>
-<ul>
-<li>Youngest child of OSE — founded 15 March or so</li>
-<li>4 arms
-<ul>
-<li>LISS data analysis (NL)</li>
-<li>GESIS data analysis (DE)</li>
-<li>Twitter sentiment analysis</li>
-<li>Infection model</li>
-</ul></li>
-<li>Major support from ECONtribute, CRC TR/224, IZA, NWO</li>
-</ul>
-</section>
-<section id="quickly-grown-out-of-infancy" class="level1">
-<h1>Quickly grown out of infancy</h1>
-<ul>
-<li>4 + 1 waves of data collection</li>
-<li>Informative <a href="https://covid-19-impact-lab.io">website</a></li>
-<li>A <a href="https://covid-19-impact-lab.iza.org/">beautiful dashboard</a></li>
-<li>1 Working paper + 2 imminent</li>
-<li>Reports published by CPB, DNB</li>
-<li>Results discussed in German and Dutch cabinets</li>
-</ul>
-</section>
 <section id="background" class="level1">
 <h1>Background</h1>
 <ul>
-<li>LISS panel a long-running Dutch Internet Panel (since 2007)</li>
-<li>Probability-based sample, ~7000 respondents</li>
-<li>Data can be linked to administrative records at an individual-level</li>
-<li>Christian, Axel and me have collected lots of data on ambiguity there for the past two years (and I did some stuff previously)</li>
+<li>LISS: Online Panel in the Netherlands, running since 2007</li>
+<li>Based on probability sample</li>
+<li>Roughly 5,000 households / 7,500 individuals</li>
+<li>Each month, respondents get 30 minutes of questionnaires
+<ul>
+<li>Background data on Work, Health, Income, ...</li>
+<li>Questionnaires designed by researchers (~85c / minute / respondent)</li>
+</ul></li>
+<li>Around 85% of respondents can be linked to administrative microdata</li>
+</ul>
+</section>
+<section id="crc-data-collection" class="level1">
+<h1>CRC data collection</h1>
+<ul>
+<li>C01: Panel of ambiguity attitudes / stock market beliefs (see my presentation this afternoon if interested)</li>
+<li>A01, A02, C01: Risk / time social preferences, parental expectations for children's careers, ...</li>
+<li>A03: Within-household financial decisions</li>
 </ul>
 </section>
 <section id="covid-19-surveys" class="level1">
 <h1>CoViD-19 surveys</h1>
 <ul>
 <li>See <a href="https://liss-covid-19-questionnaires-documentation.readthedocs.io/">https://liss-covid-19-questionnaires-documentation.readthedocs.io/</a></li>
-<li><strong>March 20-31:</strong> Risk perceptions, behavioural reactions and preferences re social distancing policies, changes in the work and childcare situation, intentions and expectations regarding consumption/savings decisions, mental health <strong>(financed by ECONtribute)</strong>.</li>
-<li><strong>April 6-28:</strong> Risk perceptions, number of personal contacts, changes in the work situation, income and macro expectations <strong>(financed by ECONtribute)</strong></li>
-<li><strong>April 21-28:</strong> Time Use and Consumption survey, similar to November 2019 edition, adapted to current situation <strong>(financed by CRC/TR 224)</strong></li>
+<li><strong>March 20-31:</strong> Risk perceptions, behavioural reactions and preferences re social distancing policies, changes in the work and childcare situation, intentions and expectations regarding consumption/savings decisions, mental health</li>
+<li><strong>April 6-28:</strong> Risk perceptions, number of personal contacts, changes in the work situation, income and macro expectations</li>
 <li><strong>May</strong> Mostly labour, some health, home schooling</li>
 <li><strong>June</strong> Mostly labour, lots of job search, how do parents deal with opening of daycares / primary schools?</li>
+<li><strong>September</strong>: Risk perceptions, support for policies, changes in the work situation, income and macro expectations</li>
+<li><strong>Hopefully three more waves!</strong></li>
 </ul>
 </section>
-<section id="data-management-background" class="level1">
-<h1>Data management: Background</h1>
+<section id="covid-19-time-use-consumption" class="level1">
+<h1>(CoViD-19) Time use &amp; consumption</h1>
 <ul>
-<li>Data management: First idea — get out some dataset to be used quickly</li>
-<li>Traded off speed for consistency</li>
-<li>Lesson learned: There is no trade-off</li>
+<li><strong>November 2019</strong>: Baseline, helped redesign survey</li>
+<li><strong>April 21-28:</strong> Similar to November 2019 edition, adapted to lockdown situation</li>
+<li><strong>November</strong>: Similar to November 2019, adapted to current situation</li>
+<li><strong>Hopefully another round November 2021</strong></li>
 </ul>
 </section>
-<section id="variable-names" class="level1">
-<h1>Variable names</h1>
+<section id="some-results" class="level1">
+<h1>Some results</h1>
 <ul>
-<li><a href="https://estimagic.readthedocs.io/en/latest/contributing/styleguide.html">https://estimagic.readthedocs.io/en/latest/contributing/styleguide.html</a></li>
-<li>What is the probability that the Coronavirus crisis will lead to a situation where you have no income or where your income is lower than what you need to cover basic needs and outstanding payment obligations?</li>
-<li>= Financial distress if you have a million on your bank account?</li>
+<li>Hours worked by essential worker status and capability to work from home</li>
+<li>Gender division of tasks</li>
 </ul>
 </section>
-<section id="stick-to-normal-forms" class="level1">
-<h1>Stick to Normal forms</h1>
-<ul>
-<li>Values do not have any internal structure</li>
-<li>Tables do not contain redundant information</li>
-<li>No structure in variable names</li>
-</ul>
-<p>Started with wide format -- painful (lots of string parsing for variable names, little flexibility)</p>
+<section id="hours-worked" class="level1">
+<h1>Hours worked</h1>
+<p><img src="work-childcare/abs-change-hours-over-time-by-work_perc_home_cat_only_noness_ger-full-unconditional.png" style="width:35.0%" alt="pic1" /> <img src="work-childcare/abs-change-hours-over-time-by-work_perc_home_cat_only_ess_ger-full-unconditional.png" style="width:35.0%" alt="pic2" /></p>
 </section>
-<section id="technical-hurdles" class="level1">
-<h1>Technical hurdles</h1>
-<ul>
-<li>Started out with group of people who knew their tools (in particular Python, Git)</li>
-<li>Many of those who are eager to analyse data are on Stata or R and have no idea of either Python or Git</li>
-<li>Lots of double work and confusion (how to discretise probability statements?)</li>
-<li>Classic open source issue -- get a solution for your problem, do not take externalities into account</li>
-<li>Need to solve challenges</li>
-</ul>
+<section id="hours-worked-from-home" class="level1">
+<h1>Hours worked from home</h1>
+<p><img src="work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat_only_noness_ger-full-unconditional.png" style="width:35.0%" alt="pic3" /> <img src="work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat_only_ess_ger-full-unconditional.png" style="width:35.0%" alt="pic4" /></p>
 </section>
-<section id="interoperability-pandas----r-stata" class="level1">
-<h1>Interoperability Pandas -- R / Stata</h1>
+<section id="hours-worked-by-sector" class="level1">
+<h1>Hours worked by sector</h1>
+<p><img src="work-childcare/sector_change_ind_by_work_perc_march.png" style="width:35.0%" alt="pic5" /> <img src="work-childcare/sector_change_ind_by_work_perc_june.png" style="width:35.0%" alt="pic6" /></p>
+</section>
+<section id="gender-division-of-tasks" class="level1">
+<h1>Gender division of tasks</h1>
 <ul>
-<li>Stay away from the bleeding edge of Pandas, especially the internal data types including missings -- killed feather</li>
-<li>Went with pickle for Pandas DataFrames, csv for R &amp; Stata</li>
-<li>Lots of information lost in transition</li>
-<li>Silver bullet not found yet, trying Parquet / dta now</li>
+<li>On average, women reduce one hour extra during lockdown, effect vanishes by June</li>
+<li>No addtional effect of children being present in the household on either parent!</li>
+<li>If both parents work full-time before pandemic: roughly equal shares of additional childcare
+<ul>
+<li>Typically 37 + 32 hours than 45 + 45</li>
+</ul></li>
+<li>Combinations FT / PT or FT / no work: Gender care gap increases</li>
+<li>Currently working on explaining this in model with specialization / subsidized childcare for relatively short hours</li>
 </ul>
 </section>
-<section id="overall-conclusions" class="level1">
-<h1>Overall conclusions</h1>
+<section id="other-current-projects" class="level1">
+<h1>Other current projects</h1>
 <ul>
-<li>Much slower than what we had envisioned, largely my "fault"</li>
-<li>Frictions between "applied" people and nerds tough if under time pressure</li>
-<li>Information flow in unstructured / not very structured organisation</li>
-<li>Still, pretty much did what large research institutes do for 7 or 8-digit budgets with 10 core + 15 non-core people</li>
-<li>Very proud of what we have achieved so far</li>
+<li>Mental health (with Michaela Paffenholz, Sebastian Seitz, Bettina Siflinger, Moritz Mendel)</li>
+<li>Evolution of income / macro expectations (with Moritz Mendel, Simon Heiler)</li>
+</ul>
+</section>
+<section id="more-users-wanted" class="level1">
+<h1>More users wanted!</h1>
+<ul>
+<li>Data come largely cleaned up</li>
+<li>Huge potential of data for "serious" research
+<ul>
+<li>Baseline</li>
+<li>Many data collected when it mattered (will matter)</li>
+<li>Follow-up, including in administrative data</li>
+</ul></li>
+<li>Far more than current team could potentially do</li>
+<li>Broad base of CRC users helpful for additional funding</li>
+<li>Doodle for brainstorming meeting <a href="https://doodle.com/poll/xr7452ay2qryz2gx">https://doodle.com/poll/xr7452ay2qryz2gx</a></li>
+<li>e-Mail me / let's chat!</li>
 </ul>
 </section>
 </div>
