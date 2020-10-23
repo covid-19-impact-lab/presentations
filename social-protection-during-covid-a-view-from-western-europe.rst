@@ -1,19 +1,77 @@
 :Title: Social protection during the CoViD-19 crisis: A view from Western Europe
-:Course: Implementation of the inclusive social protection scheme in an era of COVID-19 pandemic
+:Course: Webinar of the AKES: Implementation of the inclusive social protection scheme in an era of COVID-19 pandemic
 :Authors: Hans-Martin v. Gaudecker
 :Organization: Universität Bonn & IZA
 :Copyright: Creative Commons
 
 
-Story
-=====
+Outline
+=======
 
-* Inequality impact low compared to Anglo-Saxon
-* No trade-off economy / pandemic. Short lockdowns useful when it comes to inequality impact
-* Option value of functioning social insurance systems
+* Aggregate Context
+* Policy reactions
+* Inequality outcomes
 
-Background
-==========
+
+Daily new cases per million
+===========================
+
+.. image:: aggregate-data/new-cases.png
+   :width: 80%
+
+
+Cumulative deaths per million
+=============================
+
+.. image:: aggregate-data/cumulative-deaths.png
+   :width: 80%
+
+Q-on-Q GDP Growth
+=================
+
+.. image:: aggregate-data/oecd-gdp-growth.jpg
+   :width: 80%
+
+
+Monthly unemployment rate
+=========================
+
+.. image:: aggregate-data/oecd-ue-rate.jpg
+   :width: 80%
+
+
+Pandemic policy
+===============
+
+- NL / Germany: Broadly similar
+  - Shelter-in-place policies came reasonably early, milder than in other countries
+  - Main difference after summer: Masks
+- United Kingdom
+  - Shelter-in-place came late, ended up longer and harder
+- United States:
+  - Late reaction, no clear policy at federal level
+  - States very different
+  - More politics than science
+
+
+Social policy: Labour hoarding
+==============================
+
+- Netherlands
+  - Gov't reimburses wages partly as a function of lost revenue; no strings attached
+  - Direct payments to (SMEs in) directly affected sectors
+  - Deferral of past tax payments, possibility to offset with 2020 losses
+- Germany
+  - Gov't reimburses wages conditional on working time reduction
+  - Credit guarantees for firms 
+  - Direct payments to (SMEs) in directly affected sectors
+  - Easier access to social transfer programs
+- United Kingdom
+  - Gov't reimburses part of the wage bill conditional on not working at all
+
+
+Data Source
+===========
 
 * LISS: Online Panel in the Netherlands, running since 2007
 * Based on probability sample
@@ -21,9 +79,9 @@ Background
 * Each month, respondents get 30 minutes of questionnaires
 
   * Background data on Work, Health, Income, ...
-  * Questionnaires designed by researchers (~85c / minute / respondent)
+  * Additional questionnaires designed by researchers
 
-* Around 85% of respondents can be linked to administrative microdata
+* Around 85% of respondents can be linked to administrative microdata (not today)
 
 
 CoViD-19 surveys
@@ -36,122 +94,65 @@ CoViD-19 surveys
 * **June** Mostly labour, lots of job search, how do parents deal with opening of daycares / primary schools?
 * **September**: Risk perceptions, support for policies, changes in the work situation, income and macro expectations
 
-
-(CoViD-19) Time use & consumption
-=================================
-
-* **November 2019**: Baseline, helped redesign survey
-* **April 21-28:** Similar to November 2019 edition, adapted to lockdown situation
-* **November**: Similar to November 2019, adapted to current situation
+U.K. comparison
+===============
+* Understanding Society: Largest household panel in the U.K.
+* A subset of respondents received CoViD-19 surveys similar to ours
+* Numbers here are taken from `Crossley, Fisher, Low (2020) <https://www.economics.ox.ac.uk/materials/working_papers/5413/tcpfhlcovidshort.pdf>`_
 
 
-.. Some results
-.. =============
+Δ hours by income quintile
+==========================
 
-.. * Hours worked by essential worker status and capability to work from home
-.. * Gender division of tasks
-
-
-
-Hours worked
-============
-
-.. image:: work-childcare/abs-change-hours-over-time-by-work_perc_home_cat.png
-
-.. |pic1|  |pic2|
-
-.. .. |pic1| image:: work-childcare/abs-change-hours-over-time-by-work_perc_home_cat_only_noness-full-unconditional.png
-..    :width: 35%
-
-.. .. |pic2| image:: work-childcare/abs-change-hours-over-time-by-work_perc_home_cat_only_ess-full-unconditional.png
-..    :width: 35%
+.. image:: by-income-quintile/abs_change_hours_by_quintile.jpg
+   :width: 80%
 
 
+Δ income by quintile, p25 
+=========================
 
-Hours worked from home
-===========================
-
-.. image:: work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat.png
-
-
-.. |pic3|  |pic4|
-
-.. .. |pic3| image:: work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat_only_noness-full-unconditional.png
-..    :width: 35%
-
-.. .. |pic4| image:: work-childcare/abs-change-hours-home-over-time-by-work_perc_home_cat_only_ess-full-unconditional.png
-..    :width: 35%
+.. image:: by-income-quintile/rel_change_hh_income_eqv_by_quintile_q25.jpg
+   :width: 80%
 
 
-Hours worked by sector (March)
-==============================
+Δ income by quintile, p50 
+=========================
 
-.. image:: work-childcare/sector_change_ind_by_work_perc_march.png
-
-
-Hours worked by sector (June)
-==============================
-
-.. image:: work-childcare/sector_change_ind_by_work_perc_june.png
+.. image:: by-income-quintile/rel_change_hh_income_eqv_by_quintile_q50.jpg
+   :width: 80%
 
 
-Hours worked by sector (September)
-==================================
+Δ income by quintile, p25 
+=========================
 
-.. image:: work-childcare/sector_change_ind_by_work_perc_september.png
-
-
-
-Gender division of tasks
-========================
-
-* On average, women reduce one hour extra during lockdown, effect vanishes by June
-* No addtional effect of children being present in the household on either parent!
-* If both parents work full-time before pandemic: roughly equal shares of additional childcare
-
-  * Typically 37 + 32 hours than 45 + 45
-
-* Combinations FT / PT or FT / no work: Gender care gap increases
+.. image:: by-income-quintile/rel_change_hh_income_eqv_by_quintile_q75.jpg
+   :width: 80%
 
 
-Full-time / Non-working couples
-=========================================
+Same numbers for U.K., Δ May, Feb 2020
+======================================
 
-.. image:: work-childcare/stacked-bar-plot-market-nonmarket-details-split-50-fulltime-olf.png
-
-
-
-Full-time / Part-time couples
-=========================================
-
-.. image:: work-childcare/stacked-bar-plot-market-nonmarket-details-split-50-fulltime-parttime.png
-
-
-
-
-
-Full-time x2 couples
-=========================================
-
-.. image:: work-childcare/stacked-bar-plot-market-nonmarket-details-split-50-both-fulltime.png
++-----------------+-------+-------+------+
+| Income quintile |  p25  | p50   | p75  |
++=================+=======+=======+======+
+| 1               | -0.6  | -0.13 | 0.04 |
++-----------------+-------+-------+------+
+| 2               | -0.36 | -0.06 | 0.07 |
++-----------------+-------+-------+------+
+| 3               | -0.34 | -0.03 | 0.04 |
++-----------------+-------+-------+------+
+| 4               | -0.43 | -0.08 | 0.04 |
++-----------------+-------+-------+------+
+| 5               | -0.39 | -0.02 | 0.08 |
++-----------------+-------+-------+------+
 
 
+Conclusion
+==========
 
-.. Other current projects
-.. ======================
-
-.. * Mental health
-.. * Evolution of income / macro expectations
-
-
-Overall conclusions
-====================
-
-- Cross-country evidence: No effect of restrictions on aggregate economic activity
-- Inequality impact
-  - mitigated by keeping lockdowns short
-  - employment / income protection crucial in the short run
-- Gender division: Heterogeneous
-  - Not back to the 1950s
-  - Western European model more resilient during crisis than Anglo-Saxon one
-  - Some glimpses of hope by changed norms in long run (home office days also for men)
+* Inequality impact an order of magnitude lower in NL (≅DE) compared to U.K. (≅U.S.)
+* Ideal social policy is preserving employment relations in the short run (see also `Jung & Kuester, 2015 <https://www.aeaweb.org/articles?id=10.1257/mac.20130028>`_), not worrying about hours worked
+* In the short run, 
+  - there is no trade-off economy / controlling the pandemic. 
+  - short lockdowns mitigate the inequality impact
+* Large option value of functioning social insurance systems: Know how to reach vulnerable parts of the population
