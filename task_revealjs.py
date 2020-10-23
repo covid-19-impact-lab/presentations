@@ -2,8 +2,8 @@ import pypandoc
 import pytask
 
 
-@pytask.mark.depends_on(("crc-covid-data.rst", "template-revealjs.html"))
-@pytask.mark.produces("crc-covid-data.html")
+@pytask.mark.depends_on(("social-protection-during-covid-a-view-from-western-europe.rst", "template-revealjs.html"))
+@pytask.mark.produces("social-protection-during-covid-a-view-from-western-europe.html")
 def task_slides(depends_on, produces):
     pypandoc.convert(
         str(depends_on[0]),
@@ -25,8 +25,8 @@ def task_slides(depends_on, produces):
     )
 
 
-@pytask.mark.depends_on("crc-covid-data.rst")
-@pytask.mark.produces("crc-covid-data.pdf")
+@pytask.mark.depends_on("social-protection-during-covid-a-view-from-western-europe.rst")
+@pytask.mark.produces("social-protection-during-covid-a-view-from-western-europe.pdf")
 def task_pdf(depends_on, produces):
     pypandoc.convert(
         str(depends_on),
