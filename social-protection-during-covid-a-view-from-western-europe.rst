@@ -40,6 +40,11 @@ Monthly unemployment rate
    :width: 80%
 
 
+.. raw:: latex
+    
+    \clearpage
+
+
 Pandemic policy
 ===============
 
@@ -69,6 +74,11 @@ Social policy: Labour hoarding
 - United Kingdom
   - Gov't reimburses part of the wage bill conditional on not working at all
 
+.. raw:: latex
+    
+    \clearpage
+
+
 
 Data Source
 ===========
@@ -97,7 +107,7 @@ CoViD-19 surveys
 U.K. comparison
 ===============
 * Understanding Society: Largest household panel in the U.K.
-* A subset of respondents received CoViD-19 surveys similar to ours
+* A subset of respondents have received CoViD-19 surveys similar to ours since April
 * Numbers here are taken from `Crossley, Fisher, Low (2020) <https://www.economics.ox.ac.uk/materials/working_papers/5413/tcpfhlcovidshort.pdf>`_
 
 
@@ -127,6 +137,13 @@ U.K. comparison
 
 .. image:: by-income-quintile/rel_change_hh_income_eqv_by_quintile_q75.jpg
    :width: 80%
+
+
+
+.. raw:: latex
+    
+    \clearpage
+
 
 
 Same numbers for U.K., Δ May, Feb 2020
