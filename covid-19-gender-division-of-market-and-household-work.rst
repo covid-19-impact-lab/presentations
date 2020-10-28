@@ -77,7 +77,7 @@ Fixed effects regressions
 * Rich controls on RHS, exact set does not matter: 
   * month × gender × (1, part time, essential worker, age)
   * month × (age, percentage of work doable from home, self-employment, profession, sector)
-* Add gender × month × children under 12 at home
+* Add gender × month × school children at home
   * No change (precise zero or hours slightly **better** preserved among parents)
   * Coefficients very similar when restricting sample to 2-parent families
 
