@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>isfb2020-hmg.md</title>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+
+<style>
+/* https://github.com/microsoft/vscode/blob/master/extensions/markdown-language-features/media/markdown.css */
+/*---------------------------------------------------------------------------------------------
+ *  Copyright (c) Microsoft Corporation. All rights reserved.
+ *  Licensed under the MIT License. See License.txt in the project root for license information.
+ *--------------------------------------------------------------------------------------------*/
+
+body {
+	font-family: var(--vscode-markdown-font-family, -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif);
+	font-size: var(--vscode-markdown-font-size, 14px);
+	padding: 0 26px;
+	line-height: var(--vscode-markdown-line-height, 22px);
+	word-wrap: break-word;
+}
+
+#code-csp-warning {
+	position: fixed;
+	top: 0;
+	right: 0;
+	color: white;
+	margin: 16px;
+	text-align: center;
+	font-size: 12px;
+	font-family: sans-serif;
+	background-color:#444444;
+	cursor: pointer;
+	padding: 6px;
+	box-shadow: 1px 1px 1px rgba(0,0,0,.25);
+}
+
+#code-csp-warning:hover {
+	text-decoration: none;
+	background-color:#007acc;
+	box-shadow: 2px 2px 2px rgba(0,0,0,.25);
+}
+
+body.scrollBeyondLastLine {
+	margin-bottom: calc(100vh - 22px);
+}
+
+body.showEditorSelection .code-line {
+	position: relative;
+}
+
+body.showEditorSelection .code-active-line:before,
+body.showEditorSelection .code-line:hover:before {
+	content: "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: -12px;
+	height: 100%;
+}
+
+body.showEditorSelection li.code-active-line:before,
+body.showEditorSelection li.code-line:hover:before {
+	left: -30px;
+}
+
+.vscode-light.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.15);
+}
+
+.vscode-light.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(0, 0, 0, 0.40);
+}
+
+.vscode-light.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-dark.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.4);
+}
+
+.vscode-dark.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 255, 255, 0.60);
+}
+
+.vscode-dark.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+.vscode-high-contrast.showEditorSelection .code-active-line:before {
+	border-left: 3px solid rgba(255, 160, 0, 0.7);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line:hover:before {
+	border-left: 3px solid rgba(255, 160, 0, 1);
+}
+
+.vscode-high-contrast.showEditorSelection .code-line .code-line:hover:before {
+	border-left: none;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+a {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+a:focus,
+input:focus,
+select:focus,
+textarea:focus {
+	outline: 1px solid -webkit-focus-ring-color;
+	outline-offset: -1px;
+}
+
+hr {
+	border: 0;
+	height: 2px;
+	border-bottom: 2px solid;
+}
+
+h1 {
+	padding-bottom: 0.3em;
+	line-height: 1.2;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+}
+
+h1, h2, h3 {
+	font-weight: normal;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+table > thead > tr > th {
+	text-align: left;
+	border-bottom: 1px solid;
+}
+
+table > thead > tr > th,
+table > thead > tr > td,
+table > tbody > tr > th,
+table > tbody > tr > td {
+	padding: 5px 10px;
+}
+
+table > tbody > tr + tr > td {
+	border-top: 1px solid;
+}
+
+blockquote {
+	margin: 0 7px 0 5px;
+	padding: 0 16px 0 10px;
+	border-left-width: 5px;
+	border-left-style: solid;
+}
+
+code {
+	font-family: Menlo, Monaco, Consolas, "Droid Sans Mono", "Courier New", monospace, "Droid Sans Fallback";
+	font-size: 1em;
+	line-height: 1.357em;
+}
+
+body.wordWrap pre {
+	white-space: pre-wrap;
+}
+
+pre:not(.hljs),
+pre.hljs code > div {
+	padding: 16px;
+	border-radius: 3px;
+	overflow: auto;
+}
+
+pre code {
+	color: var(--vscode-editor-foreground);
+	tab-size: 4;
+}
+
+/** Theming */
+
+.vscode-light pre {
+	background-color: rgba(220, 220, 220, 0.4);
+}
+
+.vscode-dark pre {
+	background-color: rgba(10, 10, 10, 0.4);
+}
+
+.vscode-high-contrast pre {
+	background-color: rgb(0, 0, 0);
+}
+
+.vscode-high-contrast h1 {
+	border-color: rgb(0, 0, 0);
+}
+
+.vscode-light table > thead > tr > th {
+	border-color: rgba(0, 0, 0, 0.69);
+}
+
+.vscode-dark table > thead > tr > th {
+	border-color: rgba(255, 255, 255, 0.69);
+}
+
+.vscode-light h1,
+.vscode-light hr,
+.vscode-light table > tbody > tr + tr > td {
+	border-color: rgba(0, 0, 0, 0.18);
+}
+
+.vscode-dark h1,
+.vscode-dark hr,
+.vscode-dark table > tbody > tr + tr > td {
+	border-color: rgba(255, 255, 255, 0.18);
+}
+
+</style>
+
+<style>
+/* Tomorrow Theme */
+/* http://jmblog.github.com/color-themes-for-google-code-highlightjs */
+/* Original theme - https://github.com/chriskempson/tomorrow-theme */
+
+/* Tomorrow Comment */
+.hljs-comment,
+.hljs-quote {
+	color: #8e908c;
+}
+
+/* Tomorrow Red */
+.hljs-variable,
+.hljs-template-variable,
+.hljs-tag,
+.hljs-name,
+.hljs-selector-id,
+.hljs-selector-class,
+.hljs-regexp,
+.hljs-deletion {
+	color: #c82829;
+}
+
+/* Tomorrow Orange */
+.hljs-number,
+.hljs-built_in,
+.hljs-builtin-name,
+.hljs-literal,
+.hljs-type,
+.hljs-params,
+.hljs-meta,
+.hljs-link {
+	color: #f5871f;
+}
+
+/* Tomorrow Yellow */
+.hljs-attribute {
+	color: #eab700;
+}
+
+/* Tomorrow Green */
+.hljs-string,
+.hljs-symbol,
+.hljs-bullet,
+.hljs-addition {
+	color: #718c00;
+}
+
+/* Tomorrow Blue */
+.hljs-title,
+.hljs-section {
+	color: #4271ae;
+}
+
+/* Tomorrow Purple */
+.hljs-keyword,
+.hljs-selector-tag {
+	color: #8959a8;
+}
+
+.hljs {
+	display: block;
+	overflow-x: auto;
+	color: #4d4d4c;
+	padding: 0.5em;
+}
+
+.hljs-emphasis {
+	font-style: italic;
+}
+
+.hljs-strong {
+	font-weight: bold;
+}
+</style>
+
+<style>
+/*
+ * Markdown PDF CSS
+ */
+
+ body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe WPC", "Segoe UI", "Ubuntu", "Droid Sans", sans-serif, "Meiryo";
+	padding: 0 12px;
+}
+
+pre {
+	background-color: #f8f8f8;
+	border: 1px solid #cccccc;
+	border-radius: 3px;
+	overflow-x: auto;
+	white-space: pre-wrap;
+	overflow-wrap: break-word;
+}
+
+pre:not(.hljs) {
+	padding: 23px;
+	line-height: 19px;
+}
+
+blockquote {
+	background: rgba(127, 127, 127, 0.1);
+	border-color: rgba(0, 122, 204, 0.5);
+}
+
+.emoji {
+	height: 1.4em;
+}
+
+code {
+	font-size: 14px;
+	line-height: 19px;
+}
+
+/* for inline code */
+:not(pre):not(.hljs) > code {
+	color: #C9AE75; /* Change the old color so it seems less like an error */
+	font-size: inherit;
+}
+
+/* Page Break : use <div class="page"/> to insert page break
+-------------------------------------------------------- */
+.page {
+	page-break-after: always;
+}
+
+</style>
+
+<script src="https://unpkg.com/mermaid/dist/mermaid.min.js"></script>
+</head>
+<body>
+  <script>
+    mermaid.initialize({
+      startOnLoad: true,
+      theme: document.body.classList.contains('vscode-dark') || document.body.classList.contains('vscode-high-contrast')
+          ? 'dark'
+          : 'default'
+    });
+  </script>
+<h1 id="the-covid-19-pandemic-in-germany-policy-reaction-economic-and-social-consequences">The CoViD-19 pandemic in Germany: Policy reaction, economic and social consequences</h1>
+<p>This text aims to describe some effects of the policy reactions to the pandemic in Germany on economic outcomes. I will argue that the initial policy reaction in both countries was close to optimal, if slightly too late. However, over the summer, too little was done to prepare for the second wave, leading to a long drag over the winter that harms the economy and society more than what would have been necessary. I speculate that this has to do with falling back from crisis mode into normal operations on the side of politics and bureaucracy, which prefers non-action for some time in the quest for perfection event at times where pragmatic solutions would be in order.</p>
+<p>While very early in the pandemic there was much speculation about a trade-off between economic growth and containing the virus, it has become clear by now that this trade-off is not there for lower values of disease spread. Even letting the virus spread more or less freely—a strategy that has proven infeasible in several countries—has led to similar reductions in GDP growth as social distancing measures (e.g., Sheridan et al., 2020). High-income countries that have acted early and boldly on the pandemic have seen smaller decreases in GDP or even experienced positive economic growth in 2020.</p>
+<p>The basic reason for this is that a strategy of test-trace-and-isolate allows for an almost normal life.That is, only fairly mild restrictions on the number and type of contacts will need to be in place, for example on indoor gatherings. However, this strategy fails even for moderate case numbers—say, an incidence of 30 new cases in a population of 100,000 per week—quickly becomes infeasible because of hidden outbreaks (e.g., Contreras et al., 2021), which require strong restrictions on social and economic life to get them under control</p>
+<p>After some initial hesitancy and smaller measures, Germany introduced a nationwide lockdown in mid-March, which did not include measures like a general curfew, but proved effective in getting case numbers down quickly. On the economic side, these measures were accompanied by a large package of relief measures. Most importantly, these included the preservation of employment relationships via the short time work scheme, which allows firms to offload some of their labour costs for a limited period of time. At the same time, there were a number of emergency relief programmes for firms small and large, which were affected directly and indirectly by the pandemic. These programmes were set up at a record speed and used existing channels for distribution. The first weeks of the crisis have shown the large option value in functioning bureaucratic and social support systems, particularly in comparison to countries like the United States or the United Kingdom.</p>
+<p>The combination of firing restrictions and these economic support measures were effective in curbing the economic impact of the first months of the pandemic relative to countries like the United States or the United Kingdom (e.g., Adams-Prassl et al., 2020). We have shown for the Netherlands—were the policy reaction was broadly similar to Germany in terms of measures and timing—that people worked much fewer hours but their incomes did not drop by much across the distribution (Gaudecker et al, 2020). Unsurprisingly, Peichl (2020) comes to similar conclusion for Germany, where the data situation is more problematic.</p>
+<p>During the nationwide shutdown in the spring, economic activity fell by a lot. The quantitative effects of direct policy measures like closing stores and restaurants, of supply chain disruptions, and of production stops due to sudden declines in demand have not been disentangled yet and it is unclear to what extent that will be possible. By the end of the second quarter, however, much of business life was back to normal operations.</p>
+<p>Over the summer, infection rates in Germany were very low. It is clear now that this period of time was wasted in terms of preparing for a second wave in the autumn, which experts had predicted all along. Local health authorities continue to rely on fax machines and have not been equipped to do effective contact tracing. The purchase of vaccines has been extremely late in Europe and quantities were far too small (e.g., Fratzscher, 2021). Testing almost exclusively focused on PCR tests, which are the gold standard in clinical diagnosis, but take too long to screen the population for outbreaks. When infection rates started picking up in late September, policy makers waited until the end of October to introduce effective measures to prevent the spread.</p>
+<p>Hence, Germany has entered a period with closed bars, restaurants, tourism, and events (since November); closed schools, daycare centers, shops, and hairdressers (since mid-december), and some regions with travel restrictions (since mid-January). The economic impact of these measures is likely to be much smaller than in the spring of 2020 because demand for most goods and services is still there and supply chains are intact. However, the period is longer and the death toll of CoViD-19 has been much higher. At the same time, it seems to be much more problematic for businesses affected by closures or demand disruptions due to restrictions to access payments from economic relief programs than in the spring. Bureaucratic processes take a lot of time and some rules have been changed ex post. Nevertheless, the economic cost of the current situation seem to be limited relative to the Spring of 2020. While the businesses affected by closures are very visible, they contribute a minor share to overall GDP.</p>
+<p>The reasons for these failures are manifold, but the common ground seems to be the way politics and bureaucracy operates outside of crisis mode. In spring, much has been possible due to pragmatic actions by policymakers. By the late summer, things have come back to the usual mode of operations, that is, a strive for perfection while disregarding timing issues. For example, it is clear that PCR tests are the gold standard for clinical diagnoses. If a medical doctor needs to make treatment decisions, she needs the information whether a patient carries the virus or not. However, it usually takes several days to obtain a result. This makes it near-useless for breaking infection chains, unless everybody who is tested actually isolates until the result is there, which seems unrealistic in practice. At the same time, a number of rapid tests are available that give an indication of whether somebody is <strong>currently</strong> infectious. Expanding this at large scale would likely allow to bring infection rates down very quickly (Mina and Andersen, 2021) and it has played an important role several places considered success stories when it comes to the containment of CoViD-19, such as Rostock or Liverpool. It could be used to protect particularly vulnerable groups, such as residents in nursing care homes, but only if used at a high frequency, which is not being done in general (Baumann et al., 2021).</p>
+<p>Whether it is vaccination purchases and strategy, testing strategy, complete lack of preparation for schools to operate in pandemic mode, or the bureaucratic hurdles put into place for the economic relief payments since November 2020: There is a pattern of inaction or hesitant action when direct costs could be incurred, which later leads to indirect economic and social costs of a much larger magnitude. The difference is that it is easy to shift blame for those indirect costs (&quot;there is no alternative because this is the nature of the virus&quot;), whereas it is clear who made the decision to spend the money. In the context of the vaccine purchases, this has been nicely described by Fratzscher (2021). This way, Germany has squandered the excellent position it found itself in during the late summer of 2020; at the time of this writing we can only hope that decision-makers quickly switch back to crisis mode.</p>
+<p>References</p>
+<ul>
+<li>Adams-Prassl, Abi, Teodora Boneva, Marta Golin, and Christopher Rauh (2020): “<a href="https://doi.org/10.1016/j.jpubeco.2020.104245.">Inequality in the Impact of the Coronavirus Shock: Evidence from Real Time Surveys.</a>.</li>
+<li>Baumann, Menno; Beier, Markus; Brinkmann, Melanie; Bude, Heinz, Fuest, Clemens; Feldner, Denise; Hallek, Michael; Kickbusch, Ilona; Mayer, Maximilian; Meyer-Hermann, Michael; Peichl,  Andreas;  Rosert,  Elvira; Schneider, Matthias (2021): <a href="https://www.zeit.de/wissen/gesundheit/2021-01/no-covid-strategie.pdf">Eine neue proaktive Zielsetzung für Deutschland zur Bekämpfung von SARS-CoV-2</a></li>
+<li>Contreras, Sebastian; Dehning, Jonas; Loidolt, Matthias; Zierenberg, Johannes; Spitzner, F. Paul; Urrea-Quintero, Jorge H.; Mohr, Sebastian B.; Wilczek, Michael; Wibral, Michael; Priesemann, Viola (2021): <a href="https://doi.org/10.1038/s41467-020-20699-8">The challenges of containing SARS-CoV-2 via test-trace-and-isolate</a></li>
+<li>Fratzscher, Marcel (2021): <a href="https://www.spiegel.de/wirtschaft/soziales/corona-impfung-warum-wir-am-eu-desaster-alle-mitschuld-am-tragen-gastbeitrag-a-0805588d-a23e-4b64-bdf4-a871d7c2b99a">Das Impfdesaster, an dem wir alle Mitschuld tragen</a></li>
+<li>Gaudecker, Hans-Martin von, Radost Holler, Lena Janys, Bettina Siflinger, and Christian Zimpelmann (2020): <a href="https://www.iza.org/publications/dp/13623/labour-supply-during-lockdown-and-a-new-normal-the-case-of-the-netherlands">“Labour Supply during Lockdown and a ‘New Normal’: The Case of the Netherlands.”</a></li>
+<li>Mina, Michael J; Andersen, Kristian G. (2021): <a href="https://science.sciencemag.org/content/371/6525/126/">COVID-19 testing: One size does not fit all</a></li>
+<li>Peichl, Andreas (2020): (Macht die Corona-Krise Deutschland ungleicher?)[https://newsroom.iza.org/de/archive/videos/]macht-die-corona-krise-deutschland-ungleicher/</li>
+<li>Sheridan, Adam; Andersen,  Asger Lau; Hansen, Emil Toft; Johannesen, Niels (2020): <a href="https://doi.org/10.1073/pnas.2010068117">Social distancing laws cause only small losses of economic activity during the COVID-19 pandemic in Scandinavia</a></li>
+</ul>
+
+</body>
+</html>
