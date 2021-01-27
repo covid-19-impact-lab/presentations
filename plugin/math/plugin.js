@@ -4,14 +4,12 @@
  *
  * @author Hakim El Hattab
  */
-var RevealMath = window.RevealMath || (function(){
+const Plugin = () => {
 
-	var options = Reveal.getConfig().math || {};
-	var mathjax = options.mathjax || 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js';
-	var config = options.config || 'TeX-AMS_HTML-full';
-	var url = mathjax + '?config=' + config;
+	// The reveal.js instance this plugin is attached to
+	let deck;
 
-	var defaultOptions = {
+	let defaultOptions = {
 		messageStyle: 'none',
 		tex2jax: {
 			inlineMath: [ [ '$', '$' ], [ '\\(', '\\)' ] ],
@@ -20,25 +18,15 @@ var RevealMath = window.RevealMath || (function(){
 		skipStartupTypeset: true
 	};
 
-	function defaults( options, defaultOptions ) {
-
-		for ( var i in defaultOptions ) {
-			if ( !options.hasOwnProperty( i ) ) {
-				options[i] = defaultOptions[i];
-			}
-		}
-
-	}
-
 	function loadScript( url, callback ) {
 
-		var head = document.querySelector( 'head' );
-		var script = document.createElement( 'script' );
+		let head = document.querySelector( 'head' );
+		let script = document.createElement( 'script' );
 		script.type = 'text/javascript';
 		script.src = url;
 
 		// Wrapper for callback to make sure it only fires once
-		var finish = function() {
+		let finish = () => {
 			if( typeof callback === 'function' ) {
 				callback.call();
 				callback = null;
@@ -48,7 +36,7 @@ var RevealMath = window.RevealMath || (function(){
 		script.onload = finish;
 
 		// IE
-		script.onreadystatechange = function() {
+		script.onreadystatechange = () => {
 			if ( this.readyState === 'loaded' ) {
 				finish();
 			}
@@ -60,10 +48,21 @@ var RevealMath = window.RevealMath || (function(){
 	}
 
 	return {
-		init: function() {
+		id: 'math',
 
-			defaults( options, defaultOptions );
-			defaults( options.tex2jax, defaultOptions.tex2jax );
+		init: function( reveal ) {
+
+			deck = reveal;
+
+			let revealOptions = deck.getConfig().math || {};
+
+			let options = { ...defaultOptions, ...revealOptions };
+			let mathjax = options.mathjax || 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js';
+			let config = options.config || 'TeX-AMS_HTML-full';
+			let url = mathjax + '?config=' + config;
+
+			options.tex2jax = { ...defaultOptions.tex2jax, ...revealOptions.tex2jax };
+
 			options.mathjax = options.config = null;
 
 			loadScript( url, function() {
@@ -72,11 +71,11 @@ var RevealMath = window.RevealMath || (function(){
 
 				// Typeset followed by an immediate reveal.js layout since
 				// the typesetting process could affect slide height
-				MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub ] );
-				MathJax.Hub.Queue( Reveal.layout );
+				MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, deck.getRevealElement() ] );
+				MathJax.Hub.Queue( deck.layout );
 
 				// Reprocess equations in slides when they turn visible
-				Reveal.addEventListener( 'slidechanged', function( event ) {
+				deck.on( 'slidechanged', function( event ) {
 
 					MathJax.Hub.Queue( [ 'Typeset', MathJax.Hub, event.currentSlide ] );
 
@@ -87,6 +86,6 @@ var RevealMath = window.RevealMath || (function(){
 		}
 	}
 
-})();
+};
 
-Reveal.registerPlugin( 'math', RevealMath );
+export default Plugin;

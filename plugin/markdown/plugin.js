@@ -1,27 +1,32 @@
-/**
+/*!
  * The reveal.js markdown plugin. Handles parsing of
  * markdown inside of presentations as well as loading
  * of external markdown documents.
  */
-(function( root, factory ) {
-	if (typeof define === 'function' && define.amd) {
-		root.marked = require( './marked' );
-		root.RevealMarkdown = factory( root.marked );
-	} else if( typeof exports === 'object' ) {
-		module.exports = factory( require( './marked' ) );
-	} else {
-		// Browser globals (root is window)
-		root.RevealMarkdown = factory( root.marked );
-	}
-}( this, function( marked ) {
 
-	var DEFAULT_SLIDE_SEPARATOR = '^\r?\n---\r?\n$',
-		DEFAULT_NOTES_SEPARATOR = 'notes?:',
-		DEFAULT_ELEMENT_ATTRIBUTES_SEPARATOR = '\\\.element\\\s*?(.+?)$',
-		DEFAULT_SLIDE_ATTRIBUTES_SEPARATOR = '\\\.slide:\\\s*?(\\\S.+?)$';
+import marked from 'marked'
 
-	var SCRIPT_END_PLACEHOLDER = '__SCRIPT_END__';
+const DEFAULT_SLIDE_SEPARATOR = '^\r?\n---\r?\n$',
+	  DEFAULT_NOTES_SEPARATOR = 'notes?:',
+	  DEFAULT_ELEMENT_ATTRIBUTES_SEPARATOR = '\\\.element\\\s*?(.+?)$',
+	  DEFAULT_SLIDE_ATTRIBUTES_SEPARATOR = '\\\.slide:\\\s*?(\\\S.+?)$';
 
+const SCRIPT_END_PLACEHOLDER = '__SCRIPT_END__';
+
+const CODE_LINE_NUMBER_REGEX = /\[([\s\d,|-]*)\]/;
+
+const HTML_ESCAPE_MAP = {
+  '&': '&amp;',
+  '<': '&lt;',
+  '>': '&gt;',
+  '"': '&quot;',
+  "'": '&#39;'
+};
+
+const Plugin = () => {
+
+	// The reveal.js instance this plugin is attached to
+	let deck;
 
 	/**
 	 * Retrieves the markdown contents of a slide section
@@ -138,7 +143,7 @@
 
 		// iterate until all blocks between separators are stacked up
 		while( matches = separatorRegex.exec( markdown ) ) {
-			notes = null;
+			var notes = null;
 
 			// determine direction (horizontal by default)
 			isHorizontal = horizontalSeparatorRegex.test( matches[0] );
@@ -195,13 +200,13 @@
 	 * multi-slide markdown into separate sections and
 	 * handles loading of external markdown.
 	 */
-	function processSlides() {
+	function processSlides( scope ) {
 
 		return new Promise( function( resolve ) {
 
 			var externalPromises = [];
 
-			[].slice.call( document.querySelectorAll( '[data-markdown]') ).forEach( function( section, i ) {
+			[].slice.call( scope.querySelectorAll( '[data-markdown]:not([data-markdown-parsed])') ).forEach( function( section, i ) {
 
 				if( section.getAttribute( 'data-markdown' ).length ) {
 
@@ -258,7 +263,7 @@
 			var xhr = new XMLHttpRequest(),
 				url = section.getAttribute( 'data-markdown' );
 
-			datacharset = section.getAttribute( 'data-charset' );
+			var datacharset = section.getAttribute( 'data-charset' );
 
 			// see https://developer.mozilla.org/en-US/docs/Web/API/element.getAttribute#Notes
 			if( datacharset != null && datacharset != '' ) {
@@ -287,7 +292,7 @@
 				xhr.send();
 			}
 			catch ( e ) {
-				alert( 'Failed to get the Markdown file ' + url + '. Make sure that the presentation and the file are served by a HTTP server and the file can be found there. ' + e );
+				console.warn( 'Failed to get the Markdown file ' + url + '. Make sure that the presentation and the file are served by a HTTP server and the file can be found there. ' + e );
 				resolve( xhr, url );
 			}
 
@@ -307,15 +312,21 @@
 	function addAttributeInElement( node, elementTarget, separator ) {
 
 		var mardownClassesInElementsRegex = new RegExp( separator, 'mg' );
-		var mardownClassRegex = new RegExp( "([^\"= ]+?)=\"([^\"=]+?)\"", 'mg' );
+		var mardownClassRegex = new RegExp( "([^\"= ]+?)=\"([^\"]+?)\"|(data-[^\"= ]+?)(?=[\" ])", 'mg' );
 		var nodeValue = node.nodeValue;
+		var matches,
+			matchesClass;
 		if( matches = mardownClassesInElementsRegex.exec( nodeValue ) ) {
 
 			var classes = matches[1];
 			nodeValue = nodeValue.substring( 0, matches.index ) + nodeValue.substring( mardownClassesInElementsRegex.lastIndex );
 			node.nodeValue = nodeValue;
 			while( matchesClass = mardownClassRegex.exec( classes ) ) {
-				elementTarget.setAttribute( matchesClass[1], matchesClass[2] );
+				if( matchesClass[2] ) {
+					elementTarget.setAttribute( matchesClass[1], matchesClass[2] );
+				} else {
+					elementTarget.setAttribute( matchesClass[3], "" );
+				}
 			}
 			return true;
 		}
@@ -329,13 +340,13 @@
 	function addAttributes( section, element, previousElement, separatorElementAttributes, separatorSectionAttributes ) {
 
 		if ( element != null && element.childNodes != undefined && element.childNodes.length > 0 ) {
-			previousParentElement = element;
+			var previousParentElement = element;
 			for( var i = 0; i < element.childNodes.length; i++ ) {
-				childElement = element.childNodes[i];
+				var childElement = element.childNodes[i];
 				if ( i > 0 ) {
-					j = i - 1;
+					var j = i - 1;
 					while ( j >= 0 ) {
-						aPreviousChildElement = element.childNodes[j];
+						var aPreviousChildElement = element.childNodes[j];
 						if ( typeof aPreviousChildElement.setAttribute == 'function' && aPreviousChildElement.tagName != "BR" ) {
 							previousParentElement = aPreviousChildElement;
 							break;
@@ -343,7 +354,7 @@
 						j = j - 1;
 					}
 				}
-				parentSection = section;
+				var parentSection = section;
 				if( childElement.nodeName ==  "section" ) {
 					parentSection = childElement ;
 					previousParentElement = childElement ;
@@ -367,7 +378,7 @@
 	 */
 	function convertSlides() {
 
-		var sections = document.querySelectorAll( '[data-markdown]:not([data-markdown-parsed])');
+		var sections = deck.getRevealElement().querySelectorAll( '[data-markdown]:not([data-markdown-parsed])');
 
 		[].slice.call( sections ).forEach( function( section ) {
 
@@ -396,51 +407,64 @@
 
 	}
 
-	// API
-	var RevealMarkdown = {
+	function escapeForHTML( input ) {
+
+	  return input.replace( /([&<>'"])/g, char => HTML_ESCAPE_MAP[char] );
+
+	}
+
+	return {
+		id: 'markdown',
 
 		/**
 		 * Starts processing and converting Markdown within the
 		 * current reveal.js deck.
-		 *
-		 * @param {function} callback function to invoke once
-		 * we've finished loading and parsing Markdown
 		 */
-		init: function( callback ) {
+		init: function( reveal ) {
 
-			if( typeof marked === 'undefined' ) {
-				throw 'The reveal.js Markdown plugin requires marked to be loaded';
-			}
+			deck = reveal;
 
-			if( typeof hljs !== 'undefined' ) {
-				marked.setOptions({
-					highlight: function( code, lang ) {
-						return hljs.highlightAuto( code, [lang] ).value;
-					}
-				});
-			}
+			let renderer = new marked.Renderer();
 
-			// marked can be configured via reveal.js config options
-			var options = Reveal.getConfig().markdown;
-			if( options ) {
-				marked.setOptions( options );
-			}
+			renderer.code = ( code, language ) => {
 
-			return processSlides().then( convertSlides );
+				// Off by default
+				let lineNumbers = '';
+
+				// Users can opt in to show line numbers and highlight
+				// specific lines.
+				// ```javascript []        show line numbers
+				// ```javascript [1,4-8]   highlights lines 1 and 4-8
+				if( CODE_LINE_NUMBER_REGEX.test( language ) ) {
+					lineNumbers = language.match( CODE_LINE_NUMBER_REGEX )[1].trim();
+					lineNumbers = `data-line-numbers="${lineNumbers}"`;
+					language = language.replace( CODE_LINE_NUMBER_REGEX, '' ).trim();
+				}
+
+				// Escape before this gets injected into the DOM to
+				// avoid having the HTML parser alter our code before
+				// highlight.js is able to read it
+				code = escapeForHTML( code );
+
+				return `<pre><code ${lineNumbers} class="${language}">${code}</code></pre>`;
+			};
+
+			marked.setOptions( {
+				renderer,
+				...deck.getConfig().markdown
+			} );
+
+			return processSlides( deck.getRevealElement() ).then( convertSlides );
 
 		},
 
 		// TODO: Do these belong in the API?
 		processSlides: processSlides,
 		convertSlides: convertSlides,
-		slidify: slidify
+		slidify: slidify,
+		marked: marked
+	}
 
-	};
+};
 
-	// Register our plugin so that reveal.js will call our
-	// plugin 'init' method as part of the initialization
-	Reveal.registerPlugin( 'markdown', RevealMarkdown );
-
-	return RevealMarkdown;
-
-}));
+export default Plugin;

@@ -20,7 +20,7 @@ output_formats = ["html", "pdf"]
         for name, output_format in itertools.product(names, output_formats)
     ]
 )
-def task_slides(depends_on, produces):
+def xtask_slides(depends_on, produces):
     if produces.suffix == ".html":
         pypandoc.convert(
             str(depends_on[0]),
