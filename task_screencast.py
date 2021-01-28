@@ -15,7 +15,7 @@ names = ["labour-market-wellbeing-during-covid-19-netherlands"]
     "depends_on, produces",
     [
         (
-            [f"{n}.md", "template-revealjs.html", "config.py"],
+            [f"{n}.md", "template-revealjs.html", "config.py"] + list((Path(__file__).parent / "2021-01").glob("*")),
             f"{n}.html",
         )
         for n in names
