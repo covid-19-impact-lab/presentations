@@ -53,7 +53,7 @@ def revealjs_pandoc(depends_on, produces):
             "-V",
             "theme:night",
             "-V",
-            "revealjs-url=file://" + str(SRC.absolute()) + "/revealjs",
+            "revealjs-url=file://" + str(SRC.absolute()),
             "--no-highlight",
             "--standalone",
             "--self-contained",
@@ -63,8 +63,8 @@ def revealjs_pandoc(depends_on, produces):
 
 
 names = [
-    "labour-market-wellbeing-during-covid-19-netherlands",
-    # "panel_discussion_law"
+    # "labour-market-wellbeing-during-covid-19-netherlands",
+    "panel_discussion_law"
 ]
 
 
