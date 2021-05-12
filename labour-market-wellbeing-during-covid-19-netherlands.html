@@ -28,12 +28,12 @@
 	var link = document.createElement( 'link' );
 	link.rel = 'stylesheet';
 	link.type = 'text/css';
-	link.href = window.location.search.match( /print-pdf/gi ) ? 'file:///mnt/econ/epp/epp/revealjs/css/print/pdf.css' : 'file:///mnt/econ/epp/epp/revealjs/css/print/paper.css';
+	link.href = window.location.search.match( /print-pdf/gi ) ? 'file:///mnt/econ/covid-19-presentations/css/print/pdf.css' : 'file:///mnt/econ/covid-19-presentations/css/print/paper.css';
 	document.getElementsByTagName( 'head' )[0].appendChild( link );
 </script>
 
 <!--[if lt IE 9]>
-<script src="file:///mnt/econ/epp/epp/revealjs/lib/js/html5shiv.js"></script>
+<script src="file:///mnt/econ/covid-19-presentations/lib/js/html5shiv.js"></script>
 <![endif]-->
 </head>
 
@@ -277,13 +277,13 @@
   
   // Optional libraries used to extend on reveal.js
   dependencies: [
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/math/math.js', async: true },
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/highlight/highlight.js', async: true },
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/search/search.js', async: true },
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/zoom-js/zoom.js', async: true },
-      { src: 'file:///mnt/econ/epp/epp/revealjs/plugin/notes/notes.js', async: true }
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/math/math.js', async: true },
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/highlight/highlight.js', async: true },
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/search/search.js', async: true },
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/zoom-js/zoom.js', async: true },
+      { src: 'file:///mnt/econ/covid-19-presentations/plugin/notes/notes.js', async: true }
   ]
   });
 

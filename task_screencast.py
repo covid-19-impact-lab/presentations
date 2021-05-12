@@ -9,6 +9,7 @@ from config import revealjs_pandoc
 names = [
     "labour-market-wellbeing-during-covid-19-netherlands",
     "oecd-experiences-liss",
+    "work-hours-pisa",
 ]
 
 

@@ -5,7 +5,6 @@ import pypandoc
 
 SRC = Path(__file__).parent
 OUT = SRC.joinpath("out")
-STUD = SRC.parent.joinpath("epp-materials")
 TMP = SRC.joinpath("_tmp")
 
 
@@ -47,7 +46,7 @@ def revealjs_pandoc(depends_on, produces):
             "-V",
             "theme:night",
             "-V",
-            "revealjs-url=file://" + str(SRC.absolute()) + "/revealjs",
+            "revealjs-url=file://" + str(SRC.absolute()),
             "--no-highlight",
             "--standalone",
             "--self-contained",
